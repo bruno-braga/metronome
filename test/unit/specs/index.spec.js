@@ -1,6 +1,9 @@
-import { mount } from 'avoriaz'
 import sinon from 'sinon'
+import lolex from 'lolex'
+import { mount } from 'avoriaz'
+
 import Index from 'src/components/index'
+import LightColors from '../../../src/components/helpers/LightColors'
 
 describe('Metronome', () => {
   const metronomeWrapper = mount(Index)
@@ -8,6 +11,9 @@ describe('Metronome', () => {
 
   beforeEach(() => {
     metronomeWrapper.vm.togglePlayStop = togglePlayStopFunctionRef
+    metronomeWrapper.vm.lights.forEach((light) => {
+      light.turnOff()
+    })
     metronomeWrapper.setData({isRunning: false})
   })
 
@@ -27,5 +33,26 @@ describe('Metronome', () => {
     metronomeWrapper.vm.togglePlayStop()
     metronomeWrapper.vm.togglePlayStop()
     expect(metronomeWrapper.data().isRunning).to.be.false
+  })
+
+  it('should change the color of the first light to red in the first click', () => {
+    metronomeWrapper.vm.togglePlayStop()
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.HEAD)
+  })
+
+  it('should toggle the color of the light after each click', () => {
+    let clock = lolex.createClock()
+    metronomeWrapper.vm.togglePlayStop()
+
+    clock.setInterval(metronomeWrapper.vm.click, 15)
+    clock.tick(15)
+
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.OFF)
+    expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.ON)
+
+    clock.tick(15)
+
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.ON)
+    expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.OFF)
   })
 })
