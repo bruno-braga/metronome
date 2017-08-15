@@ -4,7 +4,11 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Step 1
 
-Behaviours added towards turning the metronome ON and OFF
+Behaviours added towards the action state of the metronome's(is running or not)
+
+## Step 2
+
+Behaviours added towards turning the metronome's light ON and OFF 
 
 ### Build Setup
 
