@@ -12,7 +12,11 @@ export default {
   data () {
     return {
       lights: [],
-      isRunning: false
+      isRunning: false,
+      intervalId: false,
+      beat: 4,
+      clickCounter: 0,
+      color: LightColors.ON
     }
   },
   created () {
@@ -21,16 +25,31 @@ export default {
   methods: {
     togglePlayStop () {
       this.isRunning = !this.isRunning
-      this.lights[0].turnOn(LightColors.HEAD)
-      setInterval(this.click, 15)
+      if (this.isRunning) {
+        this.lights[0].turnOn(LightColors.HEAD)
+        this.intervalId = setInterval(this.click, 15)
+      }
+      else {
+        this.intervalId = this.stop()
+      }
     },
     click () {
+      if (this.clickCounter === this.beat) {
+        this.color = LightColors.HEAD
+      }
+
       this.lights.forEach((light, index) => {
         if (light.isOn()) {
           return light.turnOff()
         }
-        return light.turnOn()
+        return light.turnOn(this.color)
       })
+
+      ++this.clickCounter
+    },
+    stop () {
+      clearInterval(this.intervalId)
+      return true
     }
   }
 }

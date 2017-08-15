@@ -15,6 +15,7 @@ describe('Metronome', () => {
       light.turnOff()
     })
     metronomeWrapper.setData({isRunning: false})
+    metronomeWrapper.setData({beat: 4})
   })
 
   it('should start the metronome when the button #start is clicked', () => {
@@ -54,5 +55,43 @@ describe('Metronome', () => {
 
     expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.ON)
     expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.OFF)
+  })
+
+  it('should be LightColor.HEAD the color of the light when the click is equal to the beat = 4', () => {
+    let clock = lolex.createClock()
+
+    metronomeWrapper.setData({beat: 4})
+    metronomeWrapper.vm.togglePlayStop()
+
+    clock.setInterval(metronomeWrapper.vm.click, 15)
+    clock.tick(15)
+    clock.tick(15)
+    clock.tick(15)
+    clock.tick(15)
+
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.HEAD)
+    expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.OFF)
+  })
+
+  it('should be LightColor.HEAD the color of the light when the click is equal to the beat = 3', () => {
+    let clock = lolex.createClock()
+
+    metronomeWrapper.setData({beat: 3})
+    metronomeWrapper.vm.togglePlayStop()
+
+    clock.setInterval(metronomeWrapper.vm.click, 15)
+    clock.tick(15)
+    clock.tick(15)
+    clock.tick(15)
+
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.OFF)
+    expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.HEAD)
+  })
+  it('should stop the metronome when the #start button is toggled', () => {
+    metronomeWrapper.vm.togglePlayStop()
+    metronomeWrapper.vm.togglePlayStop()
+
+    let hasStopped = metronomeWrapper.vm.stop()
+    expect(hasStopped).to.be.true
   })
 })
