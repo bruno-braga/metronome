@@ -9,6 +9,10 @@ describe('Metronome', () => {
   const metronomeWrapper = mount(Index)
   let togglePlayStopFunctionRef = metronomeWrapper.vm.togglePlayStop
 
+  metronomeWrapper.vm.audio = {
+    play () {}
+  }
+
   beforeEach(() => {
     metronomeWrapper.vm.togglePlayStop = togglePlayStopFunctionRef
     metronomeWrapper.vm.lights.forEach((light) => {

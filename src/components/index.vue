@@ -29,6 +29,7 @@ export default {
   data () {
     return {
       lights: [new Light(), new Light()],
+      audio: {},
       isRunning: false,
       intervalId: false,
       beat: 4,
@@ -38,6 +39,9 @@ export default {
       lightIndexToTurnOff: null,
       nextLightIndexToTurnOn: null
     }
+  },
+  created () {
+    this.audio = new Audio()
   },
   computed: {
     playButtonText () {
@@ -49,6 +53,9 @@ export default {
       this.isRunning = !this.isRunning
       if (this.isRunning) {
         this.lights[0].turnOn(LightColors.HEAD)
+        this.audio.src = 'statics/first.ogg'
+        this.audio.play()
+
         this.intervalId = setInterval(this.click, 1000)
       }
       else {
@@ -74,12 +81,15 @@ export default {
       this.clickCounter++
       if (this.clickCounter % this.beat == 0) {
         this.color = LightColors.HEAD
+        this.audio.src = 'statics/first.ogg'
       }
       else {
         this.color = LightColors.ON
+        this.audio.src = 'statics/second.ogg'
       }
 
       this.lights[this.nextLightIndexToTurnOn].turnOn(this.color)
+      this.audio.play()
     },
     stop () {
       clearInterval(this.intervalId)
