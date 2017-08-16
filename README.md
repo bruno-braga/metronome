@@ -15,6 +15,11 @@ This metronome is being built with the intent to learn TDD. The steps described 
 - Behaviours added towards the relationship between the click of the metronome and the color of the lights
 - Beheaviour added towards stopping the metronome
 
+## Step 4
+
+- Refactor click function logic
+- Cover the click function test to cover all clicks when beat = 4
+
 ### Build Setup
 
 First you have to install quasar-cli
