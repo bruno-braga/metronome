@@ -1,8 +1,23 @@
 <template>
   <quasar-layout>
-    <template v-for="(light, index) in lights">
-    </template>
-    <button id="start" @click="togglePlayStop">START</button>
+      <div class="bg-dark layout layout-padding justify-between">
+        <div class="row justify-around">
+          <template v-for="(light, index) in lights">
+            <button v-bind:key="`light${index}`" :id="`light${index}`" class="shadow-2 circular small" :class="light.color"></button>
+          </template>
+        </div>
+
+        <div class="row self-center">
+          <button class="bg-light-blue-4 text-light circular big playButton" id="play" @click="togglePlayStop">{{ playButtonText }}</button>
+        </div>
+
+        <div class="row justify-around">
+          <div class="column inline self-end">
+            <q-numeric class="text-light-blue-4 big" :min="2" v-model="beat"></q-numeric>
+          </div>
+          <q-knob color="#64b5f6" v-model="bpm"  :min="60" :max="230"></q-knob>
+        </div>
+      </div>
   </quasar-layout>
 </template>
 
@@ -17,10 +32,16 @@ export default {
       isRunning: false,
       intervalId: false,
       beat: 4,
+      bpm: 60,
       clickCounter: 0,
       color: LightColors.ON,
       lightIndexToTurnOff: null,
       nextLightIndexToTurnOn: null
+    }
+  },
+  computed: {
+    playButtonText () {
+      return this.isRunning ? 'STOP' : 'START'
     }
   },
   methods: {
@@ -69,4 +90,25 @@ export default {
 </script>
 
 <style lang="styl">
+  .q-numeric i {
+    font-size: 200% !important;
+  }
+
+  .q-numeric input[type="number"] {
+    font-size: 200% !important;
+    color: white;
+  }
+
+  .q-numeric {
+    border-bottom: none !important;
+  }
+
+  .playButton {
+    height: 90px !important;
+    width: 90px !important;
+  }
+
+  .playButton i {
+    font-size: 2em;
+  }
 </style>
