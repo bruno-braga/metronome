@@ -4,7 +4,21 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Step 1
 
-Behaviours added towards turning the metronome ON and OFF
+- Behaviours added towards the action state of the metronome's(is running or not)
+
+## Step 2
+
+- Behaviours added towards turning the metronome's light ON and OFF 
+
+## Step 3
+
+- Behaviours added towards the relationship between the click of the metronome and the color of the lights
+- Beheaviour added towards stopping the metronome
+
+## Step 4
+
+- Refactor click function logic
+- Cover the click function test to cover all clicks when beat = 4
 
 ### Build Setup
 
