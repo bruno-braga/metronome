@@ -8,7 +8,7 @@
         </div>
 
         <div class="row self-center">
-          <button class="bg-light-blue-4 text-light circular big playButton" id="play" @click="togglePlayStop">{{ playButtonText }}</button>
+          <button class="bg-light-blue-4 text-light circular big playButton" id="start" @click="togglePlayStop">{{ playButtonText }}</button>
         </div>
 
         <div class="row justify-around">
