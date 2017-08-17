@@ -22,11 +22,16 @@ This metronome is being built with the intent to learn TDD. The steps described 
 - Behaviour added towards test to every clicks when beat = 4
 - Behaviour added towards test to every clicks when beat = 3
 
-# Step 5
+## Step 5
 
 - Behaviours added towards reseting the value of the clickCounter when the metronome is stopped
 
-### Build Setup
+## Step 6
+
+- Behaviour added towards turning the lights off when the metronome is toggled(stopped)
+
+
+### Setup 
 
 First you have to install quasar-cli
 
@@ -34,7 +39,7 @@ First you have to install quasar-cli
 npm install -g quasar-cli
 ```
 
-### Running
+and then
 
 ``` bash
 git clone https://github.com/bruno-braga/metronome.git
@@ -42,7 +47,7 @@ cd metronome
 npm install
 ```
 
-### Commands
+### Running & Test commands 
 
 ``` bash
 # serve with hot reload at localhost:8080

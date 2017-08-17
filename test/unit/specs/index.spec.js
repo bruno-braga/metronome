@@ -89,4 +89,12 @@ describe('Metronome', () => {
 
     expect(metronomeWrapper.vm.clickCounter).to.be.eql(0)
   })
+
+  it('should be zero the value of clickCounter when the #start button is toggled', () => {
+    metronomeWrapper.vm.togglePlayStop()
+    metronomeWrapper.vm.togglePlayStop()
+
+    expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.OFF)
+    expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.OFF)
+  })
 })
