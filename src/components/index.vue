@@ -60,6 +60,7 @@ export default {
       }
       else {
         this.intervalId = this.stop()
+        this.clickCounter = 0
       }
     },
     click () {

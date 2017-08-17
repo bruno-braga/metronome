@@ -8,7 +8,7 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Step 2
 
-- Behaviours added towards turning the metronome's light ON and OFF 
+- Behaviours added towards toggling the metronome's light ON and OFF 
 
 ## Step 3
 
@@ -18,7 +18,13 @@ This metronome is being built with the intent to learn TDD. The steps described 
 ## Step 4
 
 - Refactor click function logic
-- Cover the click function test to cover all clicks when beat = 4
+- Refactor the click function
+- Behaviour added towards test to every clicks when beat = 4
+- Behaviour added towards test to every clicks when beat = 3
+
+# Step 5
+
+- Behaviours added towards reseting the value of the clickCounter when the metronome is stopped
 
 ### Build Setup
 
