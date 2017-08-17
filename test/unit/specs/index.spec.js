@@ -97,4 +97,9 @@ describe('Metronome', () => {
     expect(metronomeWrapper.vm.lights[0].color).to.be.eql(LightColors.OFF)
     expect(metronomeWrapper.vm.lights[1].color).to.be.eql(LightColors.OFF)
   })
+
+  it('should be 1000 the tempo when bpm = 60', () => {
+    metronomeWrapper.vm.bpm = 60
+    expect(metronomeWrapper.vm.intervalTempo).to.be.eql(1000)
+  })
 })

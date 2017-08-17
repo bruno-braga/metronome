@@ -30,6 +30,9 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 - Behaviour added towards turning the lights off when the metronome is toggled(stopped)
 
+## Step 7
+
+- Behaviour added towards calculation the interval tempo of the click/beats
 
 ### Setup 
 

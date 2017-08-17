@@ -25,6 +25,8 @@
 import Light from './helpers/Light'
 import LightColors from './helpers/LightColors'
 
+const MINUTE = 60000
+
 export default {
   data () {
     return {
@@ -46,6 +48,9 @@ export default {
   computed: {
     playButtonText () {
       return this.isRunning ? 'STOP' : 'START'
+    },
+    intervalTempo () {
+      return (MINUTE / this.bpm)
     }
   },
   methods: {
@@ -56,7 +61,7 @@ export default {
         this.audio.src = 'statics/first.ogg'
         this.audio.play()
 
-        this.intervalId = setInterval(this.click, 1000)
+        this.intervalId = setInterval(this.click, this.intervalTempo)
       }
       else {
         this.intervalId = this.stop()
