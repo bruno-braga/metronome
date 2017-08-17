@@ -1,6 +1,6 @@
 # METRONOME 
 
-This metronome is being built with the intent to learn TDD. The steps described here are all abreviations of the actual tests that are being writen.
+This metronome is being built with the intent to learn TDD. The steps described here are all abreviations of the actual tests that are being writen. Each step has its own branch so it's easy to check it out what was done.
 
 ## Step 1
 
@@ -34,7 +34,7 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 - Behaviour added towards calculation the interval tempo of the click/beats
 
-### Setup 
+## Setup 
 
 First you have to install quasar-cli
 
@@ -50,7 +50,7 @@ cd metronome
 npm install
 ```
 
-### Running & Test commands 
+## Running & Test commands 
 
 ``` bash
 # serve with hot reload at localhost:8080
