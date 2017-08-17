@@ -32,7 +32,7 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Step 7
 
-- Behaviour added towards calculation the interval tempo of the beats
+- Behaviour added towards calculation the interval tempo of the click/beats
 
 ### Setup 
 
