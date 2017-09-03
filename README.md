@@ -1,4 +1,4 @@
-# METRONOME 
+# METRONOME
 
 This metronome is being built with the intent to learn TDD. The steps described here are all abreviations of the actual tests that are being writen. Each step has its own branch so it's easy to check it out what was done.
 
@@ -8,7 +8,7 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Step 2
 
-- Behaviours added towards toggling the metronome's light ON and OFF 
+- Behaviours added towards toggling the metronome's light ON and OFF
 
 ## Step 3
 
@@ -34,7 +34,7 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 - Behaviour added towards calculation the interval tempo of the click/beats
 
-## Setup 
+## Setup
 
 First you have to install quasar-cli
 
@@ -42,15 +42,15 @@ First you have to install quasar-cli
 npm install -g quasar-cli
 ```
 
-and then
+and then (you MUST use yarn)
 
 ``` bash
 git clone https://github.com/bruno-braga/metronome.git
 cd metronome
-npm install
+yarn install
 ```
 
-## Running & Test commands 
+## Running & Test commands
 
 ``` bash
 # serve with hot reload at localhost:8080
