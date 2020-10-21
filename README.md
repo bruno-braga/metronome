@@ -36,14 +36,6 @@ This metronome is being built with the intent to learn TDD. The steps described 
 
 ## Setup
 
-First you have to install quasar-cli
-
-```bash
-npm install -g quasar-cli
-```
-
-and then (you MUST use yarn)
-
 ``` bash
 git clone https://github.com/bruno-braga/metronome.git
 cd metronome
@@ -54,8 +46,8 @@ yarn install
 
 ``` bash
 # serve with hot reload at localhost:8080
-quasar dev
+yarn dev
 
 # run unit tests
-quasar test --unit
+yarn unit
 ```
